@@ -1,0 +1,59 @@
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import LoginPage from "../pageScreens/LoginPage/LoginPage";
+import SignUpPage from "../pageScreens/SignUpPage/SignUpPage";
+import FeedPage from "../pageScreens/FeedPage/FeedPage";
+import SplashPage from "../pageScreens/splashPage/SplashPage";
+import SignUpAdressPage from "../pageScreens/signUpAdressPage/SignUpAdressPage";
+import RestaurantePage from "../pageScreens/RestaurantPage/RestaurantPage";
+import CartPage from "../pageScreens/CartPage/CartPage";
+import ProfilePage from "../pageScreens/ProfilePage/ProfilePage";
+import ProfileEditPage from "../pageScreens/ProfileEditPage/ProfileEditPage";
+import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage";
+import HistoryPage from "../pageScreens/ProfileHistoryPage/ProfileHistoryPage";
+export default function Router() {
+ return (
+        <div>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/">
+                        <SplashPage />
+                    </Route>
+                    <Route exact path="/login">
+                      <LoginPage />
+                    </Route>
+                    <Route exact path="/cadastro">
+                        <SignUpPage />
+                    </Route>
+                    <Route exact path="/endereco">
+                     <SignUpAdressPage />
+                    </Route>
+                    <Route exact path="/restaurantes">
+                    <FeedPage />
+                    </Route>
+                    <Route exact path="/restaurantes/:id">
+                   <RestaurantePage />
+                    </Route>
+                    <Route exact path="/carrinho">
+                   <CartPage />
+                    </Route>
+                    <Route exact path="/perfil">
+                    <ProfilePage />
+                    </Route>
+                    <Route exact path="/perfil/editar">
+                   <ProfileEditPage />
+                    </Route>
+                    <Route exact path="/perfil/endereco">
+                   <EditAdressPage />
+                    </Route>
+                    <Route exact path="/perfil/historico">
+                   <HistoryPage />
+                    </Route>
+                    <Route>
+                        <div>ERROR 404</div>
+                    </Route>
+                </Switch>
+            </BrowserRouter>
+        </div>
+    );
+ }
