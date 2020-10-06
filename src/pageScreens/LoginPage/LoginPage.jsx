@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import axios from 'axios'
-import React, { useEffect } from 'react'
-import { useForm } from "../../hooks/useForm";
+import React, { useEffect } from 'react';
+import  { useForm } from "../../hooks/useForm";
 import { goToSignUpPage } from "../../routes/Cordinator";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { Container, InputConfig, Form, SignUp, Input, ButtonConfig, Image, Title } from "./styled"
@@ -57,7 +57,7 @@ function LoginPage() {
       <Title>Entrar</Title>
       <ThemeProvider theme={theme}>
 
-        <Form  autocomplete="off"onSubmit={handleLoginPage}>
+        <Form onSubmit={handleLoginPage}>
           
             <InputConfig>
               <Input
@@ -65,7 +65,7 @@ function LoginPage() {
                 color="primary"
                 variant={"outlined"}
                 label="E-mail"
-                 value={form.email}
+                value={form.email}
                 type="email"
                 name="email"
                 placeholder="E-mail"
@@ -82,7 +82,7 @@ function LoginPage() {
               color="primary"
                 variant={"outlined"}
                 label="Senha"
-                value={form.senha}
+                 value={form.senha}
                 type={"password"}
                 name="senha"
                 placeholder="senha"
