@@ -11,6 +11,8 @@ import ProfilePage from "../pageScreens/ProfilePage/ProfilePage";
 import ProfileEditPage from "../pageScreens/ProfileEditPage/ProfileEditPage";
 import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage";
 import HistoryPage from "../pageScreens/ProfileHistoryPage/ProfileHistoryPage";
+import ErrorPage from "../pageScreens/ErrorPage/ErrorPage"
+
 export default function Router() {
  return (
         <div>
@@ -50,7 +52,7 @@ export default function Router() {
                    <HistoryPage />
                     </Route>
                     <Route>
-                        <div>ERROR 404</div>
+                        <ErrorPage />
                     </Route>
                 </Switch>
             </BrowserRouter>
