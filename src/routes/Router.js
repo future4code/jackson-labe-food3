@@ -13,6 +13,7 @@ import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage"
 import HistoryPage from "../pageScreens/ProfileHistoryPage/ProfileHistoryPage";
 import ErrorPage from "../pageScreens/ErrorPage/ErrorPage"
 
+
 export default function Router() {
  return (
         <div>
@@ -51,6 +52,9 @@ export default function Router() {
                     <Route exact path="/perfil/historico">
                    <HistoryPage />
                     </Route>
+                    {/* <Route exact path="/restaurantespage">
+                   <RestaurantConfirmPage />
+                    </Route> */}
                     <Route>
                         <ErrorPage />
                     </Route>

@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { TextField } from "@material-ui/core";
 
+import { TextField } from "@material-ui/core";
 export const Container = styled.div`
 
 width:100vw;
@@ -34,7 +34,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+-webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 `
 export const Image = styled.div`
@@ -58,4 +58,5 @@ export const Title = styled.h3`
   letter-spacing: -0.39px;
   text-align: center;
   color: var(--black);
+  margin-bottom:3.5vh
 `
