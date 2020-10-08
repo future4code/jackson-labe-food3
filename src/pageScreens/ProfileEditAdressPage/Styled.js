@@ -1,23 +1,38 @@
 import styled from 'styled-components'
 import {TextField, Typography} from '@material-ui/core'
 
-export const Bar = styled.div`
-    width: 375px;
+export const AddressEditContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    font-family: Roboto;
+    display: grid;
+    grid-template-columns: 1;
+    justify-content: center;
+`
+
+export const Header = styled.div`
+    width: 100%;
     height: 64px;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
-    background-color: var(--white);
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
 `
-export const Title = styled(Typography)`
+
+export const HeaderTitle = styled.h1`
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: -0.39px;
+`
+
+export const Title = styled.div`
     width: 175px;
     height: 44px;
-    margin-left: 80px;
-    margin-top: 30px;
-    padding-left: 20px;
-    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 export const Container = styled.div`
     background-color:#ffff;
