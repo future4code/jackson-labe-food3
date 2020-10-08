@@ -33,22 +33,30 @@ function LoginPage() {
       history.push("/restaurantes");
     }
   }, [history]);
-  const handleLoginPage = () => {
-    const body = {
-      email: form.email,
-      password: form.senha,
-    };
-    axios
-    .post(`${BASE_URL}/login`, body)
-      .then((response) => {
-        console.log("caiu aki nesse loginPage???", response.data)
-        window.localStorage.setItem("token", response.data.token);
-        history.push("/feed");
-      })
-      .catch((err) => {
-        console.log("hummmm caiu aki", err);
-      });
+  const handleLoginPage = event => {
+    event.preventDefault()
+    const element = document.getElementById('login-form')
+    const isValid = element.checkValidity()
+    element.reportValidity()
+    if (isValid) {
+      const body = {
+        email: form.email,
+        password: form.senha,
+      };
+      axios
+      .post(`${BASE_URL}/login`, body)
+        .then((response) => {
+          console.log("caiu aki nesse loginPage???", response.data)
+          window.localStorage.setItem("token", response.data.token);
+          history.push("/feed");
+        })
+        .catch((err) => {
+          console.log("hummmm caiu aki", err);
+        });
+    }
+    
   };
+  console.log(form)
   return (
     <Container>
       <Image>
@@ -91,7 +99,7 @@ function LoginPage() {
               </Input>
             </InputConfig>
             <ButtonConfig>
-              <Button fullWidth="bool" size="large" variant="contained" color="primary">Entrar</Button>
+              <Button fullWidth="bool" size="large" variant="contained" color="primary" type="submit">Entrar</Button>
             </ButtonConfig>
             
             <SignUp onClick={() => goToSignUpPage(history)}>Não possui cadastro? Click aqui</SignUp>

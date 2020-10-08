@@ -19,8 +19,8 @@ export const InputConfig = styled.div`
 width:90%;
 font-size:30px;
 margin-top:1vh;
-margin:3vw 0 0 5vw 
-color:black
+margin:3vw 0 0 5vw;
+color:black;
 `
 export const Buttonn = styled.button`
 font-size:30px;
