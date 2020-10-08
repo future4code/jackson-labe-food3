@@ -10,24 +10,38 @@ const RestaurantSearchPage = () => {
   const [restaurantsList, updateRestaurantsList] = useRequestData({}, '/restaurants')
 	const restaurants = restaurantsList.restaurants
 	
-	const renderSearchPlaceholder = () => (
-		<SearchPlaceholder>Busque por nome de restaurante</SearchPlaceholder>
-	)
-
-  const renderRestaurantSearch = () => (
-		restaurants.map(item => {
+  const renderRestaurantSearch = () => {
+		if (search === "") {
 			return (
-				<RestaurantCard
-					key={item.id}
-					restaurantId={item.id}
-					logoUrl={item.logoUrl}
-					name={item.name}
-					deliveryTime={item.deliveryTime}
-					shipping={item.shipping}
-				/>
+				<SearchPlaceholder>Busque por nome de restaurante</SearchPlaceholder>
 			)
-		})
-	)
+		} else {
+			const filteredRestaurants = restaurants.filter(item => {
+				return item.name.toLowerCase().includes(search.toLowerCase())
+			})
+			console.log(filteredRestaurants)
+			if (filteredRestaurants.length === 0) {
+				return (
+					<SearchPlaceholder>{"Não encontramos :("}</SearchPlaceholder>
+				)
+			} else {
+				return (
+					filteredRestaurants.map(item => {
+						return (
+							<RestaurantCard
+								key={item.id}
+								restaurantId={item.id}
+								logoUrl={item.logoUrl}
+								name={item.name}
+								deliveryTime={item.deliveryTime}
+								shipping={item.shipping}
+							/>
+						)
+					})
+				)
+			}		
+		}
+	}
     
   return (
     <RestaurantSearchPageContainer>
@@ -50,7 +64,8 @@ const RestaurantSearchPage = () => {
 				/>
 			</SearchBox>
 			<RestaurantsListContainer>
-				{search === "" ? renderSearchPlaceholder() : renderRestaurantSearch()}
+				{/* {search === "" ? renderSearchPlaceholder() : renderRestaurantSearch()} */}
+				{renderRestaurantSearch()}
 			</RestaurantsListContainer>
     </RestaurantSearchPageContainer>
   )  
