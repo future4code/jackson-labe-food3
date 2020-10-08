@@ -10,8 +10,9 @@ import CartPage from "../pageScreens/CartPage/CartPage";
 import ProfilePage from "../pageScreens/ProfilePage/ProfilePage";
 import ProfileEditPage from "../pageScreens/ProfileEditPage/ProfileEditPage";
 import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage";
-import HistoryPage from "../pageScreens/ProfileHistoryPage/ProfileHistoryPage";
+// import HistoryPage from "../pageScreens/ProfileHistoryPage/ProfileHistoryPage";
 import ErrorPage from "../pageScreens/ErrorPage/ErrorPage"
+import RestaurantSearchPage from "../pageScreens/RestaurantSearchPage/RestaurantSearchPage";
 
 
 export default function Router() {
@@ -34,6 +35,9 @@ export default function Router() {
                     <Route exact path="/restaurantes">
                     <FeedPage />
                     </Route>
+                    <Route exact path="/restaurantes/busca">
+                    <RestaurantSearchPage />
+                    </Route>
                     <Route exact path="/restaurantes/:id">
                    <RestaurantePage />
                     </Route>
@@ -49,9 +53,9 @@ export default function Router() {
                     <Route exact path="/perfil/endereco">
                    <EditAdressPage />
                     </Route>
-                    <Route exact path="/perfil/historico">
+                    {/* <Route exact path="/perfil/historico">
                    <HistoryPage />
-                    </Route>
+                    </Route> */}
                     {/* <Route exact path="/restaurantespage">
                    <RestaurantConfirmPage />
                     </Route> */}

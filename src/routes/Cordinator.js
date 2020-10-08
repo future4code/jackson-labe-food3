@@ -11,6 +11,10 @@ export const goToFeedPage = (history) => {
     history.push("/restaurantes");
 }
 
+export const goToRestaurantSearchPage = (history) => {
+    history.push("/restaurantes/busca");
+}
+
 // export const goToRestauranteConfirmPage = (history) => {
 //     history.push("/restaurantepage");
 // }

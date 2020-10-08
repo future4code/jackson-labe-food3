@@ -1,10 +1,13 @@
 import React from 'react';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import { DeliveryTimeText, RestaurantCardWrapper, RestaurantDetails, RestaurantImage, RestaurantInfo, RestaurantTitle, ShippingText } from './styled';
+import { goToRestaurantePage } from '../../routes/Cordinator';
 
 const RestaurantCard = props => {
   return (
-    <RestaurantCardWrapper>
+    <RestaurantCardWrapper 
+      onClick={()=>goToRestaurantePage(props.history, props.restaurantId)}
+    >
       <CardActionArea>
         <RestaurantImage
           image={props.logoUrl}
