@@ -5,8 +5,9 @@ export const FeedPageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   font-family: Roboto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1;
+  justify-content: center;
 `
 
 export const Header = styled.div`
@@ -47,7 +48,7 @@ export const SearchBox = styled.div`
 `
 export const SearchPlaceholder = styled.p`
   margin: 0;
-  /* font-size: 16px; */
+  font-size: 16px;
   letter-spacing: -0.39px;
   color: #d0d0d0;
 `
@@ -78,17 +79,17 @@ export const FilterText = styled.p`
   margin: 0;
   width: 87px;
   height: 18px;
+  font-family: Roboto;
+  font-size: 16px;
   letter-spacing: -0.39px;
   text-align: center;
   /* color: #e86e5a; */
 `
 
 export const RestaurantsListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  height: 63vh;
+  padding: 4px 16px;
+  overflow-y: scroll;
 `
 
 export const Footer = styled.div`
@@ -110,10 +111,11 @@ export const Footer = styled.div`
 `
 
 export const RestaurantCardWrapper = styled(Card)`
-  min-width: 328px;
+  width: 328px;
   height: 188px;
   border-radius: 8px;
   border: solid 1px #b8b8b8;
+  margin: 8px 0;
 `
 
 export const RestaurantImage = styled(CardMedia)`

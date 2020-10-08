@@ -15,20 +15,20 @@ const FeedPage = () => {
 
 	console.log(restaurants)
 
-	// const renderRestaurants = () => (
-	// 	restaurants.map(item => {
-	// 		return (
-	// 			<RestaurantCard
-	// 				key={item.id}
-	// 				restaurantId={item.id}
-	// 				logoUrl={item.logoUrl}
-	// 				name={item.name}
-	// 				deliveryTime={item.deliveryTime}
-	// 				shipping={item.shipping}
-	// 			/>
-	// 		)
-	// 	})
-	// )
+	const renderRestaurants = () => (
+		restaurants.map(item => {
+			return (
+				<RestaurantCard
+					key={item.id}
+					restaurantId={item.id}
+					logoUrl={item.logoUrl}
+					name={item.name}
+					deliveryTime={item.deliveryTime}
+					shipping={item.shipping}
+				/>
+			)
+		})
+	)
 
 	return (
 		<FeedPageContainer>
@@ -53,9 +53,7 @@ const FeedPage = () => {
 				<FilterItem><FilterText>Mexicana</FilterText></FilterItem>
 			</FilterBox>
 			<RestaurantsListContainer>
-				{/* {renderRestaurants()} */}
-				{/* {restaurants ? renderRestaurants() : <></>} */}
-				<RestaurantCard />
+				{restaurants ? renderRestaurants() : <></>}
 			</RestaurantsListContainer>
 			<Footer>
 				<div><HomePageSelected /></div>

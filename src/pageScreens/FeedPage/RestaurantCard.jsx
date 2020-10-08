@@ -7,14 +7,14 @@ const RestaurantCard = props => {
     <RestaurantCardWrapper>
       <CardActionArea>
         <RestaurantImage
-          image="http://soter.ninja/futureFoods/logos/habibs.jpg"
-          title="Habib's logo"
+          image={props.logoUrl}
+          title={`${props.name} logo`}
         />
         <RestaurantInfo>
-          <RestaurantTitle>Habib's</RestaurantTitle>
+          <RestaurantTitle>{props.name}</RestaurantTitle>
           <RestaurantDetails>
-            <DeliveryTimeText>60 min</DeliveryTimeText>
-            <ShippingText>Frete R$6,00</ShippingText>
+            <DeliveryTimeText>{`${props.deliveryTime} min`}</DeliveryTimeText>
+            <ShippingText>{`Frete R$${props.shipping},00`}</ShippingText>
           </RestaurantDetails>
         </RestaurantInfo>
       </CardActionArea>
