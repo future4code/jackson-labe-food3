@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { FeedPageContainer, FilterBox, FilterItem, FilterText, Footer, Header, HeaderTitle, HeaderTitleBox, RestaurantsListContainer, SearchBox, SearchPlaceholder } from "./styled"
+import { FeedPageContainer, FilterBox, FilterItem, FilterText, Footer, Header, HeaderTitle, HeaderTitleBox, RestaurantsListContainer, SearchBox, SearchPlaceholder, SectionButton } from "./styled"
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg'
 import { ReactComponent as HomePageSelected } from '../../assets/icons/homepage-selected.svg'
 import { ReactComponent as ShoppingCartIcon } from '../../assets/icons/shopping-cart.svg'
@@ -69,9 +69,9 @@ const FeedPage = () => {
 				{restaurants && renderRestaurants()}
 			</RestaurantsListContainer>
 			<Footer>
-				<div><HomePageSelected /></div>
-				<div onClick={()=>goToCartPage(history)}><ShoppingCartIcon /></div>
-				<div onClick={()=>goToProfilePage(history)}><AvatarIcon /></div>
+				<SectionButton><HomePageSelected /></SectionButton>
+				<SectionButton onClick={()=>goToCartPage(history)}><ShoppingCartIcon /></SectionButton>
+				<SectionButton onClick={()=>goToProfilePage(history)}><AvatarIcon /></SectionButton>
 			</Footer>
 		</FeedPageContainer>
 	)
