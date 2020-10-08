@@ -5,8 +5,10 @@ export const FeedPageContainer = styled.div`
   height: 100vh;
   font-family: Roboto;
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto) 1fr auto;
   justify-content: center;
+  align-content: start;
 `
 
 export const Header = styled.div`
@@ -83,15 +85,16 @@ export const FilterText = styled.p`
   font-size: 16px;
   letter-spacing: -0.39px;
   text-align: center;
-  /* color: #e86e5a; */
 `
 
 export const RestaurantsListContainer = styled.div`
+  align-self: stretch;
   padding: 4px 16px;
   overflow-y: scroll;
 `
 
 export const Footer = styled.div`
+  align-self: end;
   width: 100%;
   height: 49px;
   box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.2), 0 -2px 1px -1px rgba(0, 0, 0, 0.12), 0 -1px 1px 0 rgba(0, 0, 0, 0.14);

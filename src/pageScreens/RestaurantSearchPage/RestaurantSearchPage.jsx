@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+import { goBack } from '../../routes/Cordinator'
 import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
 import useRequestData from '../../hooks/useRequestData'
 import { BackButton, Header, HeaderTitle, HeaderTitleBox, RestaurantsListContainer, RestaurantSearchPageContainer, SearchBox, SearchInput, SearchPlaceholder } from "./styled"
@@ -6,6 +8,7 @@ import { ReactComponent as BackIcon } from '../../assets/icons/back.svg'
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg'
 
 const RestaurantSearchPage = () => {
+	const history = useHistory()
 	const [search, setSearch] = useState("")
   const [restaurantsList, updateRestaurantsList] = useRequestData({}, '/restaurants')
 	const restaurants = restaurantsList.restaurants
@@ -35,6 +38,7 @@ const RestaurantSearchPage = () => {
 								name={item.name}
 								deliveryTime={item.deliveryTime}
 								shipping={item.shipping}
+								history={history}
 							/>
 						)
 					})
@@ -46,7 +50,7 @@ const RestaurantSearchPage = () => {
   return (
     <RestaurantSearchPageContainer>
       <Header>
-				<BackButton>
+				<BackButton onClick={()=>goBack(history)}>
 					<BackIcon/>
 				</BackButton>
 				<HeaderTitleBox>

@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { Card, CardContent, CardMedia } from '@material-ui/core'
 
 export const RestaurantSearchPageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   font-family: Roboto;
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto) 1fr;
   align-content: start;
 `
 
@@ -91,7 +91,7 @@ export const RestaurantsListContainer = styled.div`
 `
 
 export const SearchPlaceholder = styled.p`
-  margin-top: 12px;
+  margin: 12px 0;
   text-align: center;
   letter-spacing: -0.39px;
 `
