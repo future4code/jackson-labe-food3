@@ -11,6 +11,7 @@ import ProfilePage from "../pageScreens/ProfilePage/ProfilePage";
 import ProfileEditPage from "../pageScreens/ProfileEditPage/ProfileEditPage";
 import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage";
 import ErrorPage from "../pageScreens/ErrorPage/ErrorPage"
+import RestaurantSearchPage from "../pageScreens/RestaurantSearchPage/RestaurantSearchPage";
 
 
 export default function Router() {
@@ -32,6 +33,9 @@ export default function Router() {
                     </Route>
                     <Route exact path="/restaurantes">
                     <FeedPage />
+                    </Route>
+                    <Route exact path="/restaurantes/busca">
+                    <RestaurantSearchPage />
                     </Route>
                     <Route exact path="/restaurantes/:id">
                    <RestaurantePage />
