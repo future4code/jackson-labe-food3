@@ -26,9 +26,9 @@ import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
 import {goToProfileEditPage, goToEditAdressPage, goToFeedPage, goToCartPage} from '../../routes/Cordinator'
 
-// const ProfilePage = () => {
+const ProfilePage = () => {
 //     useProtectedPage()
-//     const history = useHistory()
+    const history = useHistory()
 //     const data = useRequestData([], `/profile`)
 //     const user = data.user
 

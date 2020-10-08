@@ -5,15 +5,19 @@ import { ReactComponent as HomePageSelected } from '../../assets/icons/homepage-
 import { ReactComponent as ShoppingCartIcon } from '../../assets/icons/shopping-cart.svg'
 import { ReactComponent as AvatarIcon } from '../../assets/icons/avatar.svg'
 import useRequestData from "../../hooks/useRequestData"
-import RestaurantCard from './RestaurantCard'
+import { useHistory } from "react-router-dom"
+import { goToRestaurantSearchPage } from "../../routes/Cordinator"
+import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
 
 const FeedPage = () => {
+
+	const history = useHistory()
 
 	const [restaurantsList, updateRestaurantsList] = useRequestData({}, '/restaurants')
 
 	const restaurants = restaurantsList.restaurants
 
-	console.log(restaurants)
+	// console.log(restaurants)
 
 	const renderRestaurants = () => (
 		restaurants.map(item => {
@@ -37,7 +41,7 @@ const FeedPage = () => {
 					<HeaderTitle>Rappi4</HeaderTitle>
 				</HeaderTitleBox>
 			</Header>
-			<SearchBox>
+			<SearchBox onClick={()=>goToRestaurantSearchPage(history)}>
 				<SearchIcon />
 				<SearchPlaceholder>Restaurante</SearchPlaceholder>
 			</SearchBox>

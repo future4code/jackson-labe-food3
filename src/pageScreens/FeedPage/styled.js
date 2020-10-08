@@ -1,4 +1,3 @@
-import { Card, CardContent, CardMedia } from '@material-ui/core'
 import styled from 'styled-components'
 
 export const FeedPageContainer = styled.div`
@@ -46,6 +45,7 @@ export const SearchBox = styled.div`
   align-items: center;
   gap: 15.3px;
 `
+
 export const SearchPlaceholder = styled.p`
   margin: 0;
   font-size: 16px;
@@ -87,7 +87,6 @@ export const FilterText = styled.p`
 `
 
 export const RestaurantsListContainer = styled.div`
-  height: 63vh;
   padding: 4px 16px;
   overflow-y: scroll;
 `
@@ -96,9 +95,6 @@ export const Footer = styled.div`
   width: 100%;
   height: 49px;
   box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.2), 0 -2px 1px -1px rgba(0, 0, 0, 0.12), 0 -1px 1px 0 rgba(0, 0, 0, 0.14);
-  /* position: fixed;
-  bottom: 0;
-  left: 0; */
   display: flex;
   justify-content: space-around;
 
@@ -108,58 +104,4 @@ export const Footer = styled.div`
     align-items: center;
     flex-grow: 1;
   }
-`
-
-export const RestaurantCardWrapper = styled(Card)`
-  width: 328px;
-  height: 188px;
-  border-radius: 8px;
-  border: solid 1px #b8b8b8;
-  margin: 8px 0;
-`
-
-export const RestaurantImage = styled(CardMedia)`
-  height: 120px;
-`
-
-export const RestaurantInfo = styled(CardContent)`
-  padding: 12px 16px 0 !important;
-`
-
-export const RestaurantTitle = styled.h2`
-  margin-top: 0;
-  margin-bottom: 2px;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  letter-spacing: -0.39px;
-  color: #e86e5a;
-`
-
-export const RestaurantDetails = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-`
-
-export const DeliveryTimeText = styled.p`
-  margin: 0;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: normal;
-  letter-spacing: -0.39px;
-  color: #b8b8b8;
-  flex-grow: 1;
-`
-
-export const ShippingText = styled.p`
-  margin: 0;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: normal;
-  letter-spacing: -0.39px;
-  color: #b8b8b8;
-  text-align: end;
-  flex-grow: 1;
 `
