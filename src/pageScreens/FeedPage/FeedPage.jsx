@@ -6,7 +6,7 @@ import { ReactComponent as ShoppingCartIcon } from '../../assets/icons/shopping-
 import { ReactComponent as AvatarIcon } from '../../assets/icons/avatar.svg'
 import useRequestData from "../../hooks/useRequestData"
 import { useHistory } from "react-router-dom"
-import { goToRestaurantSearchPage } from "../../routes/Cordinator"
+import { goToCartPage, goToProfilePage, goToRestaurantSearchPage } from "../../routes/Cordinator"
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
 
 const FeedPage = () => {
@@ -70,8 +70,8 @@ const FeedPage = () => {
 			</RestaurantsListContainer>
 			<Footer>
 				<div><HomePageSelected /></div>
-				<div><ShoppingCartIcon /></div>
-				<div><AvatarIcon /></div>
+				<div onClick={()=>goToCartPage(history)}><ShoppingCartIcon /></div>
+				<div onClick={()=>goToProfilePage(history)}><AvatarIcon /></div>
 			</Footer>
 		</FeedPageContainer>
 	)
