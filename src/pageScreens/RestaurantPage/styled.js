@@ -2,8 +2,9 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
+flex-direction:column;
+align-items:center;
+
  `
 
 export const Card = styled.div`
@@ -91,7 +92,143 @@ export const DivPriceButtonConfig = styled.div`
 float:right;
 position:relative;
 bottom:19px;
+`
+
+
+export const DivContainer = styled.div`
+display:flex;
+flex-direction:column;
+`
+
+export const DivTimePrice = styled.div`
+display:flex;
 
 `
+export const ImageLogo = styled.img`
+border-radius: 8px  8px  0 0;
+
+`
+export const RestaurantName = styled.p`
+width: 328px;
+  height: 5px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  color: #E86E5A;
+
+`
+
+export const RestaurantCategory = styled.p`
+width: 104px;
+  height: 5px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  color: #B8B8B8;
+
+`
+
+export const RestaurantDelivery = styled.p`
+width: 104px;
+  height: 5px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  color: #B8B8B8;
+
+`
+
+export const RestaurantShipping = styled.p`
+width: 104px;
+  height: 5px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  color: #B8B8B8;
+
+`
+
+export const RestaurantAddress = styled.p`
+width: 328px;
+  height: 18px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  color: #B8B8B8;
+
+`
+export const BackConfig = styled.span`
+left:0;
+`
+export const ImageConfig = styled.img`
+margin-left:4vw;
+`
+export const Title = styled.h3`
+width: 84px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: var(--black);
+  margin:2.5vh auto;
+  margin-right:43%;
+  
+`
+export const HeaderConfig = styled.div`
+display:flex;
+align-items:center;
+border-bottom:1px solid gray;
+margin-bottom:2vh;
+width:100%;
+`
+export const ButtonBack = styled.div`
+background-color:red;
+display:flex;
+justify-content:left;
+
+
+`
+export const Teste = styled.div`
+text-align:center;
+
+width:100%;
+
+
+`
+
+
+
+
+
+
+
+
+
+
 
 

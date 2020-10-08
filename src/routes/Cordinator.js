@@ -10,9 +10,9 @@ export const goToSignUpAdressPage = (history) => {
 export const goToFeedPage = (history) => {
     history.push("/restaurantes");
 }
-// export const goToRestauranteConfirmPage = (history) => {
-//     history.push("/restaurantepage");
-// }
+export const goToRestauranteTeste = (history) => {
+    history.push("/teste");
+}
 
 export const goToRestaurantePage = (history, id) => {
     history.push(`/restaurantes/${id}`);

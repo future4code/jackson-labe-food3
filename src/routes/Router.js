@@ -12,13 +12,16 @@ import ProfileEditPage from "../pageScreens/ProfileEditPage/ProfileEditPage";
 import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage";
 import HistoryPage from "../pageScreens/ProfileHistoryPage/ProfileHistoryPage";
 import ErrorPage from "../pageScreens/ErrorPage/ErrorPage"
-
+import RestauranteTeste from "../pageScreens/PAGINATESTE/RestauranteTeste"
 
 export default function Router() {
  return (
         <div>
             <BrowserRouter>
                 <Switch>
+                <Route exact path="/teste">
+                        <RestauranteTeste />
+                    </Route>
                     <Route exact path="/">
                         <SplashPage />
                     </Route>
