@@ -1,3 +1,4 @@
+
 import React from "react"
 import {
 IconButton, 
@@ -25,11 +26,12 @@ import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
 import {goToProfileEditPage, goToEditAdressPage, goToFeedPage, goToCartPage} from '../../routes/Cordinator'
 
-const ProfilePage = () => {
-    useProtectedPage()
-    const history = useHistory()
-    const data = useRequestData([], `/profile`)
-    const user = data.user
+// const ProfilePage = () => {
+//     useProtectedPage()
+//     const history = useHistory()
+//     const data = useRequestData([], `/profile`)
+//     const user = data.user
+
 
     // const renderUser = () => {
     //     return(
@@ -65,21 +67,23 @@ const ProfilePage = () => {
     //     )
     // }
 
-    // const renderOrders = () => {
-    //     return(
-    //         orders.map((item) => {
-    //             return(
-    //                 <CardOrder key={item.id}>
-    //                     <Typography variant="h6" color="primary">Nome do restaurante</Typography>
-    //                     <Typography variant="subtitle2">data</Typography>
-    //                     <Typography variant="h5">Total</Typography>
-    //                 </CardOrder>
-    //             )
-    //         })
-    //     )
-    // }
+
+//     // const renderOrders = () => {
+//     //     return(
+//     //         orders.map((item) => {
+//     //             return(
+//     //                 <CardOrder key={item.id}>
+//     //                     <Typography variant="h6" color="primary">Nome do restaurante</Typography>
+//     //                     <Typography variant="subtitle2">data</Typography>
+//     //                     <Typography variant="h5">Total</Typography>
+//     //                 </CardOrder>
+//     //             )
+//     //         })
+//     //     )
+//     // }
     
     
+
     return (
         <div>
             <Bar>
@@ -113,5 +117,6 @@ const ProfilePage = () => {
         </div>
     )
 }
+
 
 export default ProfilePage

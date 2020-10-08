@@ -4,7 +4,7 @@ import { goBack } from "../../routes/Cordinator"
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useForm } from "../../hooks/useForm";
-import { TextField, Button, } from "@material-ui/core";
+import { Button, } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import LOGO from "../../assets/Img/logo.png"
 import Back from "../../assets/Img/back.png"
@@ -20,7 +20,7 @@ const theme = createMuiTheme({
     },
 });
 
-function SignUpPage() {
+const SignUpPage = () => {
     const { form, onChange, resetState } = useForm({ name: "", email: "", cpf: "", password: "" });
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -31,9 +31,10 @@ function SignUpPage() {
         document.title = "LabeFood"
         const token = window.localStorage.getItem("token");
         if (token) {
-            history.push("/restaurantes");
+            // history.push("/endereco");
         }
     }, [history]);
+
     const handleSignUp = (event) => {
         event.preventDefault()
         resetState()
@@ -46,27 +47,23 @@ function SignUpPage() {
         axios
             .post(`${BASE_URL}/signup`, body)
             .then((response) => {
-                console.log("caiu aki nesse loginPage???", response.data)
                 window.localStorage.setItem("token", response.data.token);
-                history.push("/restaurantes");
+                // history.push("/endereco");
             })
             .catch((err) => {
-                console.log("hummmm caiu aki", err);
+                alert("Não foi possivel completar a sua solicitação, tente novamente mais tarde.")
             });
     };
     return (
         <Container>
-            <BackConfig onClick={()=> goBack(history)}> <ImageConfig src={Back} width="13vw" /> </BackConfig>
+            <BackConfig onClick={() => goBack(history)}> <ImageConfig src={Back} width="13vw" /> </BackConfig>
             <Image>
                 <img src={LOGO} />
             </Image>
             <Title>Cadastrar</Title>
             <ThemeProvider theme={theme}>
-
                 <Form >
-
                     <InputConfig>
-
                         <Input
                             fullWidth="bool"
                             color="primary"
@@ -78,11 +75,9 @@ function SignUpPage() {
                             placeholder="Nome"
                             required
                             onChange={handleInputChange}>
-
                         </Input>
                     </InputConfig>
                     <InputConfig>
-
                         <Input
                             fullWidth="bool"
                             color="primary"
@@ -95,11 +90,9 @@ function SignUpPage() {
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                             required
                             onChange={handleInputChange}>
-
                         </Input>
                     </InputConfig>
                     <InputConfig>
-
                         <Input
                             fullWidth="bool"
                             color="primary"
@@ -111,11 +104,9 @@ function SignUpPage() {
                             placeholder="digite seu CPF"
                             required
                             onChange={handleInputChange}>
-
                         </Input>
                     </InputConfig>
                     <InputConfig>
-
                         <Input
                             fullWidth="bool"
                             color="primary"
@@ -132,13 +123,8 @@ function SignUpPage() {
                     <ButtonSignUp>
                         <Button onClick={handleSignUp} fullWidth="bool" size="large" variant="contained" color="primary">Criar</Button>
                     </ButtonSignUp>
-
-
                 </Form>
-
             </ThemeProvider>
-
-
         </Container>
     );
 }
