@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {IconButton} from '@material-ui/core'
+import {IconButton, Typography} from '@material-ui/core'
 
 export const Bar = styled.div`
     width: 375px;
@@ -17,20 +17,7 @@ export const Title = styled.div`
     margin-top: 20px;
     padding-left: 53.5px;
     padding-top: 13px;
-    padding-bottom: 12px;
-`
-export const TitleP = styled.p`
-    width: 68px;
-    height: 19px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    text-align: center;
-    color: var(--black);
+    padding-bottom: 6px;
 `
 
 export const ContainerInfo = styled.div`
