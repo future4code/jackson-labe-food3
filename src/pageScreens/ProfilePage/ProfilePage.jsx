@@ -14,7 +14,6 @@ Bar,
 Title,
 DivText,
 DivIcon,
-TitleP,
 Retangle,
 DivHistory,
 CardOrder,
@@ -24,6 +23,7 @@ DivFooter,
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
+import {goToProfileEditPage, goToEditAdressPage, goToFeedPage, goToCartPage} from '../../routes/Cordinator'
 
 const ProfilePage = () => {
     useProtectedPage()
@@ -43,7 +43,7 @@ const ProfilePage = () => {
     //                             <Typography>{item.cpf}</Typography>
     //                         </DivText>
     //                         <DivIcon>
-    //                             <IconButton>
+    //                             <IconButton onClick={() => goToProfileEditPage(history)}>
     //                                 <CreateIcon/>
     //                             </IconButton>          
     //                         </DivIcon>
@@ -54,7 +54,7 @@ const ProfilePage = () => {
     //                             <Typography>{item.address}</Typography>
     //                         </DivText>
     //                         <DivIcon>
-    //                             <IconButton>
+    //                             <IconButton onClick={() => goToEditAdressPage(history)}>
     //                                 <CreateIcon/>
     //                             </IconButton>   
     //                         </DivIcon>
@@ -84,7 +84,7 @@ const ProfilePage = () => {
         <div>
             <Bar>
                 <Title>
-                    <TitleP>Meu perfil</TitleP>
+                    <Typography>Meu perfil</Typography>
                 </Title>
             </Bar>
             <div>
@@ -99,14 +99,14 @@ const ProfilePage = () => {
             </DivHistory>
             <Footer>
                 <DivFooter>
-                    <IconButton>
+                    <IconButton onClick={() => goToFeedPage(history)}>
                         <HomeIcon/>
                     </IconButton>
-                    <IconButton>
+                    <IconButton onClick={() => goToCartPage(history)}>
                         <ShoppingCartIcon/>
                     </IconButton>  
                     <IconButton>
-                        <PersonIcon/>
+                        <PersonIcon color="primary"/>
                     </IconButton>               
                 </DivFooter>
             </Footer>

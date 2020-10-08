@@ -10,7 +10,6 @@ export const goToSignUpAdressPage = (history) => {
 export const goToFeedPage = (history) => {
     history.push("/restaurantes");
 }
-
 export const goToRestaurantePage = (history, id) => {
     history.push(`/restaurantes/${id}`);
 };
@@ -25,9 +24,6 @@ export const goToProfileEditPage = (history) => {
 }
 export const goToEditAdressPage = (history) => {
     history.push("/perfil/endereco");
-};
-export const goToHistoryPage = (history) => {
-    history.push("/perfil/historico");
 };
 export const goBack = (history) => {
     history.goBack();
