@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import axios from 'axios'
 import {
 IconButton, 
@@ -8,6 +8,7 @@ Button,
 } from '@material-ui/core'
 import CreateIcon from '@material-ui/icons/Create';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import {
 ProfileEditContainer,
 Container,
@@ -22,15 +23,26 @@ ButtonConfig,
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
-import {goBack} from '../../routes/Cordinator'
+import {goToProfilePage} from '../../routes/Cordinator'
 import { useForm } from "../../hooks/useForm";
 import {BASE_URL} from '../../constants/urls'
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#E86E5A",
+      contrastText: 'black'
+    },
+    secondary: {
+      main: "#008000",
+    },
+  },
+});
 
 const ProfileEditPage = () => {
     useProtectedPage()
     const history = useHistory()
-    const {form, onChange, resetState} = useForm({
+    const {form, onChange} = useForm({
       name: "", 
       email: "", 
       cpf: ""
@@ -41,6 +53,12 @@ const ProfileEditPage = () => {
       onChange(name, value)
     }
 
+    useEffect(() => {
+      const token = window.localStorage.getItem("token");
+      if (token) {
+      }
+    }, [history]);
+
     const handleEditProfile = (event) => {
       event.preventDefault()
       const body = {
@@ -49,22 +67,23 @@ const ProfileEditPage = () => {
         cpf: form.cpf
       }
       axios
-      .put(`${BASE_URL}/address`, {headers: {
+      .put(`${BASE_URL}/profile`, body, {headers: {
         auth: localStorage.getItem("token")
       }})
       .then((response) => {
         alert("Dados atualizados com sucesso!")
-        resetState()
       })
       .catch((err) => {
         alert("Não foi possível atualizar os dados.")
+        console.log(err)
       })
     }
 
     return (
+      <ThemeProvider theme={theme}>
         <ProfileEditContainer>
             <Header>
-                <IconButton onClick={() => goBack(history)}>
+                <IconButton onClick={() => goToProfilePage(history)}>
                     <ArrowBackIosIcon/>
                 </IconButton>
                 <Title>
@@ -130,6 +149,7 @@ const ProfileEditPage = () => {
 
             
         </ProfileEditContainer>
+      </ThemeProvider>  
     )
 }
 
