@@ -97,6 +97,7 @@ export const FilterText = styled.p`
 export const RestaurantsListContainer = styled.div`
   align-self: stretch;
   padding: 4px 16px;
+  position: relative;
   overflow-y: scroll;
 `
 

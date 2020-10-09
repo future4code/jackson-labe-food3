@@ -8,6 +8,7 @@ import useRequestData from "../../hooks/useRequestData"
 import { useHistory } from "react-router-dom"
 import { goToCartPage, goToProfilePage, goToRestaurantSearchPage } from "../../routes/Cordinator"
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
+import Loading from "../../components/Loading/Loading"
 
 const FeedPage = () => {
 	const history = useHistory()
@@ -66,7 +67,7 @@ const FeedPage = () => {
 				{categories && renderFilter()}
 			</FilterBox>
 			<RestaurantsListContainer>
-				{restaurants && renderRestaurants()}
+				{restaurants ? renderRestaurants() : <Loading/>}
 			</RestaurantsListContainer>
 			<Footer>
 				<SectionButton><HomePageSelected /></SectionButton>
