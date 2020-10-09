@@ -6,7 +6,7 @@ const getData = (endpoint, setData) => {
   if (token) {
     axios.get(`${BASE_URL}${endpoint}`, {
       headers: {
-        Authorization: token
+        auth : token
       }
     })
       .then(response => setData(response.data))

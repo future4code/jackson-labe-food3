@@ -45,12 +45,14 @@ const LoginPage = () => {
       .post(`${BASE_URL}/login`, body)
       .then((response) => {
         window.localStorage.setItem("token", response.data.token);
+        console.log(response.data)
         history.push("/restaurantes");
       })
       .catch((err) => {
         alert("Não foi possivel completar a sua solicitação, tente novamente mais tarde.")
       });
   };
+  console.log(form)
   return (
     <Container>
       <Image>

@@ -1,40 +1,40 @@
 import styled from 'styled-components'
-import {IconButton} from '@material-ui/core'
+import {IconButton, Typography} from '@material-ui/core'
 
-export const Bar = styled.div`
-    width: 375px;
+export const ProfilePageContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  font-family: Roboto;
+  display: grid;
+  grid-template-columns: 1;
+  justify-content: center;
+`
+
+export const Header = styled.div`
+    width: 100%;
     height: 64px;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
-    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 `
 export const Title = styled.div`
     width: 175px;
     height: 44px;
-    margin-left: 93px;
-    margin-right: 92px;
-    margin-top: 20px;
-    padding-left: 53.5px;
-    padding-top: 13px;
-    padding-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
-export const TitleP = styled.p`
-    width: 68px;
-    height: 19px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    text-align: center;
-    color: var(--black);
+export const HeaderTitle = styled.h1`
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing: -0.39px;
 `
 
 export const ContainerInfo = styled.div`
-    width: 375px;
+    width: 100%;
     height: 90px;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -86,11 +86,11 @@ export const CardOrder = styled.div`
     justify-content: space-around;
 `
 export const Footer = styled.div`
-    width: 375px;
-    height: 50px;
+    width: 100%;
+    height: 49px;
+    box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.2), 0 -2px 1px -1px rgba(0, 0, 0, 0.12), 0 -1px 1px 0 rgba(0, 0, 0, 0.14);
     position: fixed;
     bottom: 0;
-    border-top: 1px solid #b8b8b8;
 `
 
 export const DivFooter = styled.div`
