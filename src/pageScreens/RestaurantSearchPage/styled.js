@@ -28,6 +28,7 @@ export const BackButton = styled.span`
   position: absolute;
   bottom: 10px;
   left: 16px;
+  cursor: pointer;
 `
 
 export const HeaderTitleBox = styled.div`
@@ -51,14 +52,13 @@ export const SearchBox = styled.div`
   border: solid 1px #b8b8b8;
   display: flex;
   align-items: center;
-  /* gap: 15.3px; */
   z-index: 200;
   position: relative;
 
   svg {
-    /* width: 24px; */
     position: absolute;
     left: 17px;
+    cursor: pointer;
   }
 `
 

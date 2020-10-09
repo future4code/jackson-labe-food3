@@ -46,6 +46,11 @@ export const SearchBox = styled.div`
   display: flex;
   align-items: center;
   gap: 15.3px;
+  cursor: text;
+
+  svg {
+    cursor: pointer;
+  }
 `
 
 export const SearchPlaceholder = styled.p`
@@ -53,6 +58,7 @@ export const SearchPlaceholder = styled.p`
   font-size: 16px;
   letter-spacing: -0.39px;
   color: #d0d0d0;
+  cursor: text;
 `
 
 export const FilterBox = styled.div`
@@ -63,6 +69,7 @@ export const FilterBox = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
   overflow-x: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -90,6 +97,7 @@ export const FilterText = styled.p`
 export const RestaurantsListContainer = styled.div`
   align-self: stretch;
   padding: 4px 16px;
+  position: relative;
   overflow-y: scroll;
 `
 
@@ -100,11 +108,15 @@ export const Footer = styled.div`
   box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.2), 0 -2px 1px -1px rgba(0, 0, 0, 0.12), 0 -1px 1px 0 rgba(0, 0, 0, 0.14);
   display: flex;
   justify-content: space-around;
+`
 
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+export const SectionButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  
+  svg {
+    cursor: pointer;
   }
 `

@@ -1,13 +1,14 @@
 import React, { useState } from "react"
-import { FeedPageContainer, FilterBox, FilterItem, FilterText, Footer, Header, HeaderTitle, HeaderTitleBox, RestaurantsListContainer, SearchBox, SearchPlaceholder } from "./styled"
+import { FeedPageContainer, FilterBox, FilterItem, FilterText, Footer, Header, HeaderTitle, HeaderTitleBox, RestaurantsListContainer, SearchBox, SearchPlaceholder, SectionButton } from "./styled"
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg'
 import { ReactComponent as HomePageSelected } from '../../assets/icons/homepage-selected.svg'
 import { ReactComponent as ShoppingCartIcon } from '../../assets/icons/shopping-cart.svg'
 import { ReactComponent as AvatarIcon } from '../../assets/icons/avatar.svg'
 import useRequestData from "../../hooks/useRequestData"
 import { useHistory } from "react-router-dom"
-import { goToRestaurantSearchPage } from "../../routes/Cordinator"
+import { goToCartPage, goToProfilePage, goToRestaurantSearchPage } from "../../routes/Cordinator"
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
+import Loading from "../../components/Loading/Loading"
 
 const FeedPage = () => {
 	const history = useHistory()
@@ -66,12 +67,12 @@ const FeedPage = () => {
 				{categories && renderFilter()}
 			</FilterBox>
 			<RestaurantsListContainer>
-				{restaurants && renderRestaurants()}
+				{restaurants ? renderRestaurants() : <Loading/>}
 			</RestaurantsListContainer>
 			<Footer>
-				<div><HomePageSelected /></div>
-				<div><ShoppingCartIcon /></div>
-				<div><AvatarIcon /></div>
+				<SectionButton><HomePageSelected /></SectionButton>
+				<SectionButton onClick={()=>goToCartPage(history)}><ShoppingCartIcon /></SectionButton>
+				<SectionButton onClick={()=>goToProfilePage(history)}><AvatarIcon /></SectionButton>
 			</Footer>
 		</FeedPageContainer>
 	)
