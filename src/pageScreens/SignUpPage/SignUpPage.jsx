@@ -28,10 +28,10 @@ const SignUpPage = () => {
     };
     const history = useHistory();
     useEffect(() => {
-        document.title = "LabeFood"
+        
         const token = window.localStorage.getItem("token");
         if (token) {
-            // history.push("/endereco");
+             history.push("/endereco");
         }
     }, [history]);
 
@@ -48,7 +48,7 @@ const SignUpPage = () => {
             .post(`${BASE_URL}/signup`, body)
             .then((response) => {
                 window.localStorage.setItem("token", response.data.token);
-                // history.push("/endereco");
+                 history.push("/endereco");
             })
             .catch((err) => {
                 alert("Não foi possivel completar a sua solicitação, tente novamente mais tarde.")

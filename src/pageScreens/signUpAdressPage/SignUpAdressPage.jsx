@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { BASE_URL } from "../../const/BaseUrl/BASE_URL";
 import Back from "../../assets/Img/back.png"
 import axios from "axios";
@@ -38,13 +38,7 @@ const SignUpAdressPage = () => {
         onChange(name, value);
     };
 
-    const history = useHistory();
-    useEffect(() => {
-        const token = window.localStorage.getItem("token");
-        if (token) {
-            //  history.push("/restaurantes/:id");
-        }
-    }, [history]);
+     const history = useHistory();
 
     const handleAdress = () => {
         const body = {
@@ -64,7 +58,7 @@ const SignUpAdressPage = () => {
             .then((response) => { 
                 window.localStorage.setItem("token", response.data.token);
                 console.log(response.data)
-               
+                history.push("/restaurantes/:id");
                
 
             })

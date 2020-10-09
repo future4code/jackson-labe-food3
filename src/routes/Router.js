@@ -11,6 +11,7 @@ import ProfilePage from "../pageScreens/ProfilePage/ProfilePage";
 import ProfileEditPage from "../pageScreens/ProfileEditPage/ProfileEditPage";
 import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage";
 import ErrorPage from "../pageScreens/ErrorPage/ErrorPage"
+
 import RestaurantSearchPage from "../pageScreens/RestaurantSearchPage/RestaurantSearchPage";
 
 
@@ -19,6 +20,9 @@ export default function Router() {
         <div>
             <BrowserRouter>
                 <Switch>
+                <Route exact path="/teste">
+                        <RestauranteTeste />
+                    </Route>
                     <Route exact path="/">
                         <SplashPage />
                     </Route>
