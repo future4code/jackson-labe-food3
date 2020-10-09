@@ -43,7 +43,7 @@ Esse é um projeto em grupo, segue o nome da galera:
 
 ### Design System
 
-- 
+- Elementos do Material UI
 
 ### Bibliotecas usadas
 
