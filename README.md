@@ -11,12 +11,16 @@ Esse é um projeto em grupo, segue o nome da galera:
   - Roberto de Abreu Salgado
 
 ### O que funciona:
-
-- 
+- Página de Login
+- SignUp
+- Adicionar Endereço
+- Páginas de perfil (Perfil, editar endereço, editar perfilm histórico de pedidos)
+- Página de Home (Feed de Restaurantes, Busca)
 
 ### O que não funciona:
-
-- 
+- Página de Restaurante (Falta func. adicionar ao carrinho, botão de remover do carrinho, contador de quantidade, filtrar por tipo de produto)
+- Página de pedidos (Carrinho)
+- Aviso de pedido em andamento
 
 ### Link do Surge:
 
