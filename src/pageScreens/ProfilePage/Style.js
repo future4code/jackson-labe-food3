@@ -2,12 +2,9 @@ import styled from 'styled-components'
 import {IconButton, Typography} from '@material-ui/core'
 
 export const ProfilePageContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  font-family: Roboto;
-  display: grid;
-  grid-template-columns: 1;
-  justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: Roboto;
 `
 
 export const Header = styled.div`
@@ -35,28 +32,17 @@ export const HeaderTitle = styled.h1`
 
 export const ContainerInfo = styled.div`
     width: 100%;
-    height: 90px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    color: var(--black);
-    padding-left: 16px;
     display: flex;
     justify-content:space-between;
-    margin-top: 16px;
+    padding: 10px;
 `
 export const Retangle = styled.div`
-    width: 375px;
+    width: 100%;
     height: 76px;
     background-color: #eeeeee;
-    padding-left: 16px;
-    padding-top: 3px;
     display: flex;
     justify-content:space-between;
+    padding: 10px;
 `
 export const DivText = styled.div`
     display: flex;

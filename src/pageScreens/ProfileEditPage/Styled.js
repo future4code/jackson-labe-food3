@@ -5,9 +5,6 @@ export const ProfileEditContainer = styled.div`
     width: 100vw;
     height: 100vh;
     font-family: Roboto;
-    display: grid;
-    grid-template-columns: 1;
-    justify-content: center;
 `
 
 export const Header = styled.div`
@@ -35,6 +32,7 @@ export const HeaderTitle = styled.h1`
 export const Container = styled.div`
     background-color:#ffff;
     width:100vw;
+    margin-top: 10px;
 `
 
 export const Form = styled.form`
