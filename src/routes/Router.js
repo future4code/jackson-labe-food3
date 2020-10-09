@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LoginPage from "../pageScreens/LoginPage/LoginPage";
 import SignUpPage from "../pageScreens/SignUpPage/SignUpPage";
@@ -11,18 +11,20 @@ import ProfilePage from "../pageScreens/ProfilePage/ProfilePage";
 import ProfileEditPage from "../pageScreens/ProfileEditPage/ProfileEditPage";
 import EditAdressPage from "../pageScreens/ProfileEditAdressPage/EditAdressPage";
 import ErrorPage from "../pageScreens/ErrorPage/ErrorPage"
-
+import Card from "../pageScreens/RestaurantPage/Card"
 import RestaurantSearchPage from "../pageScreens/RestaurantSearchPage/RestaurantSearchPage";
 
 
 export default function Router() {
+const [cartProducts, setCartProducts] = useState([])
+
+console.log(cartProducts)
+
  return (
         <div>
             <BrowserRouter>
                 <Switch>
-                <Route exact path="/teste">
-                        <RestauranteTeste />
-                    </Route>
+
                     <Route exact path="/">
                         <SplashPage />
                     </Route>
@@ -42,10 +44,14 @@ export default function Router() {
                     <RestaurantSearchPage />
                     </Route>
                     <Route exact path="/restaurantes/:id">
-                   <RestaurantePage />
+                   <RestaurantePage
+                   cartProducts = {cartProducts}
+                   setCartProducts = {setCartProducts} />
                     </Route>
                     <Route exact path="/carrinho">
-                   <CartPage />
+                   <CartPage 
+                   cartProducts = {cartProducts}
+                   setCartProducts = {setCartProducts}/>
                     </Route>
                     <Route exact path="/perfil">
                     <ProfilePage />

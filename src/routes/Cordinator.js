@@ -14,6 +14,10 @@ export const goToRestaurantSearchPage = (history) => {
     history.push("/restaurantes/busca");
 }
 
+export const goToCard = (history) => {
+    history.push("/card");
+};
+
 
 export const goToRestaurantePage = (history, id) => {
     history.push(`/restaurantes/${id}`);

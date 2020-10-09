@@ -36,11 +36,40 @@ const ProfilePage = () => {
     const [orderList, updateOrderList] = useRequestData({}, '/orders/history')
     const user = userProfile.user
     const order = orderList.orders
-    console.log(user)
-    console.log(order)
 
     const renderUser = () => {
         return(
+            user.map((item) => {
+                return(
+                    <div key={item.id}>
+                        <ContainerInfo>
+                            <DivText>
+                                <Typography>{item.name}</Typography>
+                                <Typography>{item.email}</Typography>
+                                <Typography>{item.cpf}</Typography>
+                            </DivText>
+                            <DivIcon>
+                                <IconButton onClick={() => goToProfileEditPage(history)}>
+                                    <CreateIcon/>
+                                </IconButton>          
+                            </DivIcon>
+                        </ContainerInfo>
+                        <Retangle>
+                            <DivText>
+                                <Typography style={{color: "grey"}}>Endereço cadastrado</Typography>
+                                <Typography>{item.address}</Typography>
+                            </DivText>
+                            <DivIcon>
+                                <IconButton onClick={() => goToEditAdressPage(history)}>
+                                    <CreateIcon/>
+                                </IconButton>   
+                            </DivIcon>
+                        </Retangle>
+                    </div>
+                )
+                
+            })
+=======
             <div key={user.id}>
                 <ContainerInfo>
                     <DivText>
@@ -105,7 +134,9 @@ const ProfilePage = () => {
                 </Title>
             </Header>
             <div>
+
                 {user ? renderUser() : <Loading />}
+
             </div>
             <DivHistory>
                 <Typography>Histórico de pedidos</Typography>
