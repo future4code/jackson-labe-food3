@@ -35,7 +35,7 @@ const ProfilePage = () => {
     const [orderList, updateOrderList] = useRequestData({}, '/orders/history')
     const user = userProfile.user
     const order = orderList.order
-    console.log(user)
+     console.log(user)
     console.log(order)
 
     const renderUser = () => {
@@ -68,7 +68,9 @@ const ProfilePage = () => {
                         </Retangle>
                     </div>
                 )
+                
             })
+            
         )
     }
 
@@ -97,7 +99,8 @@ const ProfilePage = () => {
                 </Title>
             </Header>
             <div>
-                {user ? renderUser() : <></>}
+                {renderUser}
+                {/* {user ? renderUser() : <></>} */}
             </div>
             <DivHistory>
                 <Typography>Histórico de pedidos</Typography>

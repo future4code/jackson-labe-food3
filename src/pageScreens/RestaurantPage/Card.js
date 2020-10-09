@@ -1,70 +1,42 @@
-// import axios from "axios";
-// import React, { useState } from "react"
-// import { useHistory, useParams } from "react-router-dom";
-// import { BASE_URL } from "../../const/BaseUrl/BASE_URL";
-// import { useForm } from "../../hooks/useForm";
-// import {Select} from "./styled"
-
-// const Card = () => {
-//     const [cart, setCart] = useState([])
-
-//     const { form, onChange, resetState } = useForm({ id: "", quantity:"", paymentMethod:""});
-//     const handleInputChange = (event) => {
-//         const { name, value } = event.target;
-//         onChange(name, value);
-//     };
-
-//     const history = useHistory();
-//     const pathParams = useParams()
-//     const handleCart = () => {
-//         const body =
-//             {
-//                 products: [{
-//                     id: form.id,
-//                     quantity: form.quantity,
-//                 }, {
-//                     quantity: form.quantity,
-//                     id: form.id
-//                 }],
-//                 paymentMethod: form.paymentMethod
-//             }
-        
-
-//         axios
-//             .get(`${BASE_URL}/restaurants/${pathParams.id}/order`, body, {
-//                 headers: {
-//                     auth: window.localStorage.getItem("token")
-//                 }
-//             })
-//             .then((response) => {
-
-//                 console.log("caiu aki nesse cart???", response.data)
-//                 setCart(response.data.restaurant.products)
-               
-//             })
-//             .catch((err) => {
-//                 console.log("hummmm cart não", err.message);
-//             });
-//     }
+import axios from "axios";
+import React, { useState } from "react"
+import { useHistory, useParams } from "react-router-dom";
+import { BASE_URL } from "../../const/BaseUrl/BASE_URL";
+import { useForm } from "../../hooks/useForm";
+import { Select, DivContainerCard, CardAdd, TitleCard, AddCardConfig } from "./styled";
 
 
-  
-//     return (
-//         <div>
-//             <h3>Selecione a quantidade desejada</h3> 
-//             <Select>
-//                 <option>1</option>
-//                 <option>2</option>
-//                 <option>3</option>
-//                 <option>4</option>
-//                 <option>5</option>
-//             </Select>
+const Card = (props) => {
+    const [quantity, setQuantity] = useState(0)
+    
+const onChangeCard = (event) => {
+    setQuantity (event.target.value)
+}
 
-//             <h2 onClick={handleCart}>ADICIONAR AO CARRINHO</h2>
+const addCart = () => {
+    const newProduct = {id:props.productId, quantity:quantity}
+    const cart = props.cartProducts
+    const newCart = [...cart,newProduct]
+    props.setCartProducts(newCart)
+    props.setIsOpen(false)
+}
 
-//         </div>
+    return (
+        <DivContainerCard>
+            <TitleCard>Selecione a quantidade desejada</TitleCard>
+            <Select
+            onChange= {onChangeCard}>
+                <option value = {1}>1</option>
+                <option value = {2}>2</option>
+                <option value = {3}>3</option>
+                <option value = {4}>4</option>
+                <option value = {5}>5</option>
+            </Select>
+            <AddCardConfig>
+                <CardAdd onClick = {addCart}>ADICIONAR AO CARRINHO</CardAdd>
+            </AddCardConfig>
+        </DivContainerCard>
+    )
+}
 
-//     )
-// }
-
-// export default Card
+export default Card

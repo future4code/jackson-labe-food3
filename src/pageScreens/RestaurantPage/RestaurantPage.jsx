@@ -10,19 +10,18 @@ import {
     HeaderConfig, ButtonBack, Teste
 } from "./styled"
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
-import { goToFeedPage, goToRestaurantePage } from "../../routes/Cordinator"
-import RestauranteTeste from "../PAGINATESTE/RestauranteTeste";
-import styled from "styled-components"
 import Back from "../../assets/Img/back.png"
-const DivPointer = styled.div`
-cursor:pointer;
-`
+import Modal from "@material-ui/core/Modal";
+import CardModal from "./Card"
+import { useHistory, useParams } from "react-router-dom";
+import { goToCard, goToFeedPage, goToRestaurantePage } from "../../routes/Cordinator"
 
 
 const RestaurantePage = () => {
     const [product, setProduct] = useState([])
     const [restaurant, setRestaurant] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
+    const [productId, setProductId] = useState("")
     useEffect(() => {
 
         handleProducts()
@@ -49,15 +48,12 @@ const RestaurantePage = () => {
                 console.log("hummmm caiu aki", err.message);
             });
     }
-    // const propertyRepeat = {};
-    // const categoryFilter = product.filter((item) => {
-    //     return propertyRepeat.hasOwnProperty(item.category) ? false : (propertyRepeat[item.category] = true)
-    // })
-    {product.filter((element) => {
-                    return element.name, element.category, element.logoUrl, element.deliveryTime
-                 }
-            )}
-                
+
+   const handleAddCart = (id) => {
+       setProductId(id)
+       setIsOpen(true)
+   }
+
 
     return (
         <Container>
@@ -74,39 +70,41 @@ const RestaurantePage = () => {
                 <RestaurantCategory>{restaurant.category}</RestaurantCategory>
                 <DivTimePrice>
                     <RestaurantDelivery> {restaurant.deliveryTime}<span > min </span></RestaurantDelivery>
-                    <RestaurantShipping>Frete R${restaurant.shipping}<span>,00</span></RestaurantShipping>
+                    <RestaurantShipping>Frete R${restaurant.shipping}</RestaurantShipping>
                 </DivTimePrice>
                 <RestaurantAddress>{restaurant.address}</RestaurantAddress>
             </DivContainer>
 
-                
-                
-                    {product.map((item) => {
-                        return (
-                            <div key={item.id}>
-                                <Category>{item.category}</Category>
-                                <Card>
-                                    <DivImage>
-                                        <Image src={item.photoUrl} width="97px" height="112.6px" object-fit="contain" />
-                                    </DivImage>
-                                    <DivFlex>
-                                        <Name>{item.name}</Name>
-                                        <Description>{item.description}</Description>
-                                        <Price>R${item.price}</Price>
-                                        <DivPriceButtonConfig>
-                                            <ButtonCard>Adicionar</ButtonCard>
-                                        </DivPriceButtonConfig>
 
-                                    </DivFlex>
 
-                                </Card>
-                            </div>
+            {product.map((item) => {
+                return (
+                    <div key={item.id}>
+                        <Category>{item.category}</Category>
+                        <Card>
+                            <DivImage>
+                                <Image src={item.photoUrl} width="97px" height="112.6px" object-fit="contain" />
+                            </DivImage>
+                            <DivFlex>
+                                <Name>{item.name}</Name>
+                                <Description>{item.description}</Description>
+                                <Price>R${item.price.toFixed(2)}</Price>
+                                <DivPriceButtonConfig>
+                                    <ButtonCard onClick= {()=>handleAddCart(item.id)}>Adicionar</ButtonCard>
+                                </DivPriceButtonConfig>
 
-                        )
-                    })
-                }
+                            </DivFlex>
+                        </Card>
+                    </div>
 
-          
+                )
+            })
+            }
+
+            < Modal open = {isOpen}>
+                <CardModal productId = {productId}
+                setIsOpen = {setIsOpen}/>
+            </Modal>
 
         </Container>
     )

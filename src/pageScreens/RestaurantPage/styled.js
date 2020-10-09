@@ -218,8 +218,60 @@ text-align:center;
 
 width:100%;
 
+`
+export const Select = styled.select`
+
+width:296px;
+height:56px;
+border-radius:4px;
+border: solid 1px #B8B8B8;
 
 `
+export const DivContainerCard = styled.body`
+background-color:#ffff;
+width:328px;
+height:216px;
+display:flex;
+flex-direction:column;
+align-items:center;
+margin: auto;
+margin-top:60%;
+`
+export const CardAdd = styled.h2`
+width: 183px;
+  height: 19px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: right;
+  color: #4A90E2;
+  margin-top:4vh;
+
+
+`
+export const TitleCard = styled.h2`
+width: 296px;
+  height: 18px;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: var(--black);
+  margin: 4vh 4vh;
+`
+export const AddCardConfig= styled.div`
+margin-left:110px;
+
+`
+
 
 
 
