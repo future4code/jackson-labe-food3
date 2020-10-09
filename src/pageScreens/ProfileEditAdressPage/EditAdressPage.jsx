@@ -1,5 +1,5 @@
 
-import React from "react"
+import React, { useEffect } from "react"
 import axios from 'axios'
 import {
 IconButton, 
@@ -7,6 +7,7 @@ Typography,
 Divider,
 Button,
 } from '@material-ui/core'
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import CreateIcon from '@material-ui/icons/Create';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import {
@@ -23,20 +24,32 @@ ButtonConfig,
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
-import {goBack} from '../../routes/Cordinator'
+import {goToProfilePage} from '../../routes/Cordinator'
 import { useForm } from "../../hooks/useForm";
 import {BASE_URL} from '../../constants/urls'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#E86E5A",
+      contrastText: 'black'
+    },
+    secondary: {
+      main: "#008000",
+    },
+  },
+});
 
 const EditAdressPage = () => {
     useProtectedPage()
     const history = useHistory()
-    const {form, onChange, resetState} = useForm({
+    const {form, onChange} = useForm({
       street: "", 
       number: "", 
-      apartment: "",
       neighbourhood: "",
       city: "",
       state: "",
+      complement: "",
     })
 
     const handleInputChange = (event) => {
@@ -44,33 +57,40 @@ const EditAdressPage = () => {
       onChange(name, value)
     }
 
-    const handleEditAdress = (event) => {
-      event.preventDefault()
+    useEffect(() => {
+      const token = window.localStorage.getItem("token");
+      if (token) {
+      }
+    }, [history]);
+
+    const handleEditAdress = () => {
       const body = {
         street: form.street,
         number: form.number, 
-        apartment: form.apartment,
         neighbourhood: form.neighbourhood,
         city: form.city,
         state: form.state,
+        complement: form.complement,
       }
       axios
-      .put(`${BASE_URL}/address`, {headers: {
+      .put(`${BASE_URL}/address`, body, {headers: {
         auth: localStorage.getItem("token")
       }})
       .then((response) => {
         alert("Dados atualizados com sucesso!")
-        resetState()
+        window.localStorage.setItem("token", response.data.token);
       })
       .catch((err) => {
         alert("Não foi possível atualizar os dados.")
+        console.log(err)
       })
     }
 
     return (
+      <ThemeProvider theme={theme}>
         <AddressEditContainer>
             <Header>
-                <IconButton onClick={() => goBack(history)}>
+                <IconButton onClick={() => goToProfilePage(history)}>
                     <ArrowBackIosIcon/>
                 </IconButton>
                 <Title>
@@ -121,9 +141,9 @@ const EditAdressPage = () => {
                           variant="outlined"
                           margin="normal"
                           label="Complemento"
-                          value={form.apartment}
+                          value={form.complement}
                           type="text"
-                          name="apartment"
+                          name="complementq"
                           placeholder="Apto / Bloco"
                           onChange={handleInputChange}
                         >
@@ -185,6 +205,7 @@ const EditAdressPage = () => {
 
             
         </AddressEditContainer>
+      </ThemeProvider>
     )
 }
 

@@ -16,7 +16,7 @@ const FeedPage = () => {
 	const [filter, setFilter] = useState("")
 
 	const restaurants = restaurantsList.restaurants
-
+	console.log(restaurants)
 	const categories = restaurants && Array.from(new Set(restaurants.map(item => item.category)))
 
 	const renderFilter = () => (
